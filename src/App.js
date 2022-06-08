@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, {useState} from 'react'
+import Home from './homepage'
+
+import Login from './login';
+import SignUp from './signup';
+
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
 
 function App() {
+
+  const [transaction, setTransaction] = useState ([]);
+
+  const AddTransaction = ((amount, item, transactionType)=>{
+      
+    setTransaction((items)=>[...items,{
+      amount:amount,
+      item:item,
+      transactionType:transactionType
+
+    }])
+    console.log(transaction) ;
+  
+  })
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <Switch>
+        <Route exact path="/"component={Login}></Route>
+        <Route path="/sign-up"component={SignUp}></Route>
+
+        <Route path="/homepage">
+        <Home    list={transaction} add={AddTransaction}/>
+        </Route>
+      </Switch>
+    </Router>
+
+  
   );
 }
 

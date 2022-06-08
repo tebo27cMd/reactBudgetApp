@@ -1,0 +1,19 @@
+.transaction-item{
+    display: flex;
+    background-color:white;
+    color: black;
+    width: 500px;
+    height: 50px;
+    margin-top: 5px;
+}
+.expense-line{
+    border-right: 7px solid red;
+    margin-left:100px;
+
+
+
+}
+.income-line{
+    border-right: 7px solid green;
+    margin-left: inherit;
+}
