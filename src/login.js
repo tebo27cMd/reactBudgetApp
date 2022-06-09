@@ -1,7 +1,13 @@
+import React ,{useState} from 'react';
 import {useHistory} from 'react-router-dom'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../src/config/firebase'
 
 function Login(){
+
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState("")
 
     const btn={
         width:'190px',
@@ -13,15 +19,21 @@ function Login(){
 
     const login=(()=>{
 
-        history.push('/homepage');
+        signInWithEmailAndPassword(auth, email, password).then(()=>{
+            history.push('/homepage');
+        }).catch((error)=>{
+                console.log(error);
+        })
+
+     
     })
 
     return(
         <div className="container">
             <h1>Login</h1>
-            <input type="email" placeholder="Enter your email"/><br></br>
+            <input type="email" placeholder="Enter your email" onChange={(e)=>setEmail(e.target.value)}/><br></br>
 
-            <input type="password" placeholder="Enter your password"/>
+            <input type="password" placeholder="Enter your password"  onChange={(e)=>setPassword(e.target.value)}/>
 
             <button style={btn} onClick={login}>
                 Log in{" "}
@@ -31,6 +43,12 @@ function Login(){
             <span>
 
                  <Link to="/sign-up"> Create account here</Link>
+              
+             </span>
+             <span>forgot password ?</span>{" "} 
+            <span>
+
+                 <Link to="/forgot"> Click here</Link>
               
              </span>
             </div>

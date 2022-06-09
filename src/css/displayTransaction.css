@@ -7,13 +7,12 @@
     margin-top: 5px;
 }
 .expense-line{
-    border-right: 7px solid red;
-    margin-left:100px;
+    border-left: 7px solid red;
 
 
 
 }
 .income-line{
-    border-right: 7px solid green;
-    margin-left: inherit;
+    border-left: 7px solid green;
+ 
 }

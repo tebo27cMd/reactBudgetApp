@@ -2,7 +2,7 @@
 import './App.css';
 import React, {useState} from 'react'
 import Home from './homepage'
-
+import Forgot from './forgot';
 import Login from './login';
 import SignUp from './signup';
 
@@ -30,6 +30,7 @@ function App() {
       <Switch>
         <Route exact path="/"component={Login}></Route>
         <Route path="/sign-up"component={SignUp}></Route>
+        <Route path="/forgot"component={Forgot}></Route>
 
         <Route path="/homepage">
         <Home    list={transaction} add={AddTransaction}/>
