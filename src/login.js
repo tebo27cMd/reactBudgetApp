@@ -39,13 +39,13 @@ function Login(){
                 Log in{" "}
             </button>
 
-            <span>Dont have an account</span>{" "} 
+            <span>Don't have an account</span>{" "} 
             <span>
 
                  <Link to="/sign-up"> Create account here</Link>
               
              </span>
-             <span>forgot password ?</span>{" "} 
+             <span>Forgot password ?</span>{" "} 
             <span>
 
                  <Link to="/forgot"> Click here</Link>

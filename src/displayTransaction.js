@@ -3,37 +3,39 @@ import '../src/css/displayTransaction.css'
 function DisplayTransaction (props){
  return (
      <div>
+
+        
          {props.list.map((item) => (
-         <div>
+         <div style={{marginTop:"5%"}}>
+            <h1 style={{paddingTop:"5%"}}>Transaction history</h1>
              {item.transactionType=="Expense"? (
-             <div className="transaction-item">
+             <div className="transaction-item"  style={{borderRight:"5px solid red"}}>
                  <div>
                      <h4 style={{paddingLeft:'12px',paddingTop:"25px"}}>
-                         {item.amount}
+                         {item.item}
                      </h4> 
                  </div>
 
                  <div> 
                      <h4 style={{paddingLeft:'290px',paddingTop:"25px"}}>
-                         {item.item}
+                         {item.amount}
                      </h4>
                   </div> 
-                 <div className="expense-line"></div>
+              
              </div>
               ) : (
-             <div className="transaction-item">
+             <div className="transaction-item"  style={{borderRight:"5px solid green"}}>
                  <div>
                      <h4 style={{paddingLeft:'12px',paddingTop:"25px"}}>
-                         {item.amount}
+                         {item.item}
                      </h4> 
                  </div>
 
                   <div> 
                      <h4 style={{paddingLeft:'290px',paddingTop:"25px"}}>
-                         {item.item}
+                         {item.amount}
                      </h4>
-                 </div> 
-                 <div className="income-line"></div>   
+                 </div>  
              </div>
               )
           }

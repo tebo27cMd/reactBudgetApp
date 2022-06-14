@@ -17,16 +17,16 @@ function Forgot(){
 
     let history = useHistory();
 
-    const forgot=(()=>{
+    const Forgot=(()=>{
 
-        sendPasswordResetEmail(email,).then(()=>{
-            h.alert("Email has been sent to you, Please check and verify")
+        sendPasswordResetEmail(auth, email).then(()=>{
+            history.push('/');
         }).catch((error)=>{
                 console.log(error);
         })
 
      
-    })
+    });
 
     return(
         <div className="container">
@@ -35,7 +35,7 @@ function Forgot(){
             <p>Please enter email address to recieve reset link</p>
             <input type="email" placeholder="Enter your email" onChange={(e)=>setEmail(e.target.value)}/><br></br>
             
-            <button style={btn} onClick={forgot}>
+            <button style={btn} onClick={Forgot}>
                 Reset Password{" "}
             </button>           
             </div>
